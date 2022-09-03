@@ -1,0 +1,1495 @@
+[2022-09-03 16:30:42,509 PID:186152 INFO openai.py __init__] OpenAIEnv:
+- env_spec = {'max_frame': 10000000,
+ 'max_t': None,
+ 'name': 'MountainCar-v0',
+ 'normalize_state': False,
+ 'num_envs': 32}
+- eval_frequency = 100000
+- log_frequency = 100000
+- frame_op = None
+- frame_op_len = None
+- image_downsize = (84, 84)
+- normalize_state = False
+- reward_scale = None
+- num_envs = 32
+- name = MountainCar-v0
+- max_t = 200
+- max_frame = 10000000
+- to_render = False
+- is_venv = True
+- clock_speed = 32
+- clock = <slm_lab.env.base.Clock object at 0x7f42eaa380f0>
+- done = False
+- total_reward = nan
+- u_env = <slm_lab.env.vec_env.ShmemVecEnv object at 0x7f42eaaafb38>
+- observation_space = Box(2,)
+- action_space = Discrete(3)
+- observable_dim = {'state': 2}
+- action_dim = 3
+- is_discrete = True
+[2022-09-03 16:30:42,521 PID:186152 INFO base.py end_init_nets] Initialized algorithm models for lab_mode: train
+[2022-09-03 16:30:42,527 PID:186152 INFO base.py __init__] DoubleDQN:
+- agent = <slm_lab.agent.Agent object at 0x7f41fa5414a8>
+- action_pdtype = Argmax
+- action_policy = <function epsilon_greedy at 0x7f4201000378>
+- explore_var_spec = {'end_step': 50000,
+ 'end_val': 0.01,
+ 'name': 'linear_decay',
+ 'start_step': 0,
+ 'start_val': 1.0}
+- training_start_step = 32
+- gamma = 0.99
+- training_batch_iter = 1
+- training_iter = 1
+- training_frequency = 1
+- to_train = 0
+- explore_var_scheduler = <slm_lab.agent.algorithm.policy_util.VarScheduler object at 0x7f41fa541a58>
+- net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- target_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- net_names = ['net', 'target_net']
+- optim = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.00025
+    weight_decay: 0
+)
+- lr_scheduler = <slm_lab.agent.net.net_util.NoOpLRScheduler object at 0x7f41fa541dd8>
+- global_net = None
+- global_target_net = None
+- online_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- eval_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+[2022-09-03 16:30:42,528 PID:186152 INFO __init__.py __init__] Agent:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 100000,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_03_163040',
+ 'git_sha': '9102ff923d7a3e9c579edc18c6547cce94a7b77a',
+ 'graph_prepath': 'data/ddqn_per_test_2022_09_03_163040/graph/ddqn_per_test_t0_s1',
+ 'info_prepath': 'data/ddqn_per_test_2022_09_03_163040/info/ddqn_per_test_t0_s1',
+ 'log_frequency': 100000,
+ 'log_prepath': 'data/ddqn_per_test_2022_09_03_163040/log/ddqn_per_test_t0_s1',
+ 'max_session': 4,
+ 'max_trial': 1,
+ 'model_prepath': 'data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1',
+ 'prepath': 'data/ddqn_per_test_2022_09_03_163040/ddqn_per_test_t0_s1',
+ 'random_seed': 1662238042,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'search': 'RandomSearch',
+ 'session': 1,
+ 'trial': 0}
+- agent_spec = {'algorithm': {'action_pdtype': 'Argmax',
+               'action_policy': 'epsilon_greedy',
+               'explore_var_spec': {'end_step': 50000,
+                                    'end_val': 0.01,
+                                    'name': 'linear_decay',
+                                    'start_step': 0,
+                                    'start_val': 1.0},
+               'gamma': 0.99,
+               'name': 'DoubleDQN',
+               'training_batch_iter': 1,
+               'training_frequency': 1,
+               'training_iter': 1,
+               'training_start_step': 32},
+ 'memory': {'alpha': 0.6000000000000001,
+            'batch_size': 64,
+            'epsilon': 0.0001,
+            'max_size': 100000,
+            'name': 'PrioritizedReplay',
+            'use_cer': False},
+ 'name': 'DoubleDQN',
+ 'net': {'clip_grad_val': 10.0,
+         'gpu': False,
+         'hid_layers': [256, 128],
+         'hid_layers_activation': 'relu',
+         'loss_spec': {'name': 'SmoothL1Loss'},
+         'lr_scheduler_spec': None,
+         'optim_spec': {'lr': 0.00025, 'name': 'Adam'},
+         'type': 'MLPNet',
+         'update_frequency': 100,
+         'update_type': 'replace'}}
+- name = DoubleDQN
+- body = body: {
+  "agent": "<slm_lab.agent.Agent object at 0x7f41fa5414a8>",
+  "env": "<slm_lab.env.openai.OpenAIEnv object at 0x7f420118f438>",
+  "a": 0,
+  "e": 0,
+  "b": 0,
+  "aeb": "(0, 0, 0)",
+  "explore_var": 1.0,
+  "entropy_coef": NaN,
+  "loss": NaN,
+  "mean_entropy": NaN,
+  "mean_grad_norm": NaN,
+  "best_total_reward_ma": -Infinity,
+  "total_reward_ma": NaN,
+  "train_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "eval_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "observation_space": "Box(2,)",
+  "action_space": "Discrete(3)",
+  "observable_dim": {
+    "state": 2
+  },
+  "state_dim": 2,
+  "action_dim": 3,
+  "is_discrete": true,
+  "action_type": "discrete",
+  "action_pdtype": "Argmax",
+  "ActionPD": "<class 'slm_lab.lib.distribution.Argmax'>",
+  "memory": "<slm_lab.agent.memory.prioritized.PrioritizedReplay object at 0x7f41fa541780>"
+}
+- algorithm = <slm_lab.agent.algorithm.dqn.DoubleDQN object at 0x7f41fa5415c0>
+[2022-09-03 16:30:42,528 PID:186152 INFO logger.py info] Session:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 100000,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_03_163040',
+ 'git_sha': '9102ff923d7a3e9c579edc18c6547cce94a7b77a',
+ 'graph_prepath': 'data/ddqn_per_test_2022_09_03_163040/graph/ddqn_per_test_t0_s1',
+ 'info_prepath': 'data/ddqn_per_test_2022_09_03_163040/info/ddqn_per_test_t0_s1',
+ 'log_frequency': 100000,
+ 'log_prepath': 'data/ddqn_per_test_2022_09_03_163040/log/ddqn_per_test_t0_s1',
+ 'max_session': 4,
+ 'max_trial': 1,
+ 'model_prepath': 'data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1',
+ 'prepath': 'data/ddqn_per_test_2022_09_03_163040/ddqn_per_test_t0_s1',
+ 'random_seed': 1662238042,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'search': 'RandomSearch',
+ 'session': 1,
+ 'trial': 0}
+- index = 1
+- agent = <slm_lab.agent.Agent object at 0x7f41fa5414a8>
+- env = <slm_lab.env.openai.OpenAIEnv object at 0x7f420118f438>
+- eval_env = <slm_lab.env.openai.OpenAIEnv object at 0x7f420118f438>
+[2022-09-03 16:30:42,528 PID:186152 INFO logger.py info] Running RL loop for trial 0 session 1
+[2022-09-03 16:30:42,536 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 0  wall_t: 0  opt_step: 0  frame: 0  fps: 0  total_reward: nan  total_reward_ma: nan  loss: nan  lr: 0.00025  explore_var: 1  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:31:05,967 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 100000  wall_t: 23  opt_step: 18744  frame: 100000  fps: 4347.83  total_reward: -200  total_reward_ma: -200  loss: 1.75664  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:31:29,651 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 200000  wall_t: 47  opt_step: 37494  frame: 200000  fps: 4255.32  total_reward: -131.406  total_reward_ma: -165.703  loss: 2.77258  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:31:29,664 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -165.703  strength: 34.2969  max_strength: 68.5938  final_strength: 68.5938  sample_efficiency: 5e-06  training_efficiency: 2.66709e-05  stability: nan
+[2022-09-03 16:31:53,179 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 300000  wall_t: 70  opt_step: 56244  frame: 300000  fps: 4285.71  total_reward: -163.125  total_reward_ma: -164.844  loss: 3.79422  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:31:53,201 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -164.844  strength: 35.1562  max_strength: 68.5938  final_strength: 36.875  sample_efficiency: 4.41728e-06  training_efficiency: 2.35623e-05  stability: 0.537585
+[2022-09-03 16:32:17,257 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 400000  wall_t: 94  opt_step: 74994  frame: 400000  fps: 4255.32  total_reward: -133.094  total_reward_ma: -156.906  loss: 11.7451  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:32:17,267 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -156.906  strength: 43.0938  max_strength: 68.5938  final_strength: 66.9062  sample_efficiency: 3.6731e-06  training_efficiency: 1.95924e-05  stability: 0.699259
+[2022-09-03 16:32:41,277 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 500000  wall_t: 118  opt_step: 93744  frame: 500000  fps: 4237.29  total_reward: -139.156  total_reward_ma: -153.356  loss: 8.18232  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:32:41,287 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -153.356  strength: 46.6437  max_strength: 68.5938  final_strength: 60.8438  sample_efficiency: 3.23661e-06  training_efficiency: 1.7264e-05  stability: 0.780819
+[2022-09-03 16:33:05,216 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 600000  wall_t: 142  opt_step: 112494  frame: 600000  fps: 4225.35  total_reward: -142.125  total_reward_ma: -151.484  loss: 6.44137  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:33:05,225 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -151.484  strength: 48.5156  max_strength: 68.5938  final_strength: 57.875  sample_efficiency: 2.92448e-06  training_efficiency: 1.55989e-05  stability: 0.825271
+[2022-09-03 16:33:29,362 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 700000  wall_t: 167  opt_step: 131244  frame: 700000  fps: 4191.62  total_reward: -139.406  total_reward_ma: -149.759  loss: 5.42926  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:33:29,372 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -149.759  strength: 50.2411  max_strength: 68.5938  final_strength: 60.5938  sample_efficiency: 2.66674e-06  training_efficiency: 1.42241e-05  stability: 0.860011
+[2022-09-03 16:33:53,100 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 800000  wall_t: 190  opt_step: 149994  frame: 800000  fps: 4210.53  total_reward: -138.188  total_reward_ma: -148.312  loss: 8.24096  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:33:53,109 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -148.312  strength: 51.6875  max_strength: 68.5938  final_strength: 61.8125  sample_efficiency: 2.45496e-06  training_efficiency: 1.30944e-05  stability: 0.88413
+[2022-09-03 16:34:16,796 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 900000  wall_t: 214  opt_step: 168744  frame: 900000  fps: 4205.61  total_reward: -139.531  total_reward_ma: -147.337  loss: 3.99649  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:34:16,807 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -147.337  strength: 52.6632  max_strength: 68.5938  final_strength: 60.4688  sample_efficiency: 2.28351e-06  training_efficiency: 1.21799e-05  stability: 0.898201
+[2022-09-03 16:34:41,031 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 1e+06  wall_t: 238  opt_step: 187494  frame: 1e+06  fps: 4201.68  total_reward: -134.156  total_reward_ma: -146.019  loss: 7.19398  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:34:41,040 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -146.019  strength: 53.9813  max_strength: 68.5938  final_strength: 65.8438  sample_efficiency: 2.12695e-06  training_efficiency: 1.13448e-05  stability: 0.911189
+[2022-09-03 16:35:04,574 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 1.1e+06  wall_t: 262  opt_step: 206244  frame: 1.1e+06  fps: 4198.47  total_reward: -131.75  total_reward_ma: -144.722  loss: 9.01045  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:35:04,587 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -144.722  strength: 55.2784  max_strength: 68.5938  final_strength: 68.25  sample_efficiency: 1.99026e-06  training_efficiency: 1.06157e-05  stability: 0.922022
+[2022-09-03 16:35:28,241 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 1.2e+06  wall_t: 285  opt_step: 224994  frame: 1.2e+06  fps: 4210.53  total_reward: -127.938  total_reward_ma: -143.323  loss: 4.6734  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:35:28,249 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -143.323  strength: 56.6771  max_strength: 72.0625  final_strength: 72.0625  sample_efficiency: 1.86768e-06  training_efficiency: 9.9618e-06  stability: 0.930774
+[2022-09-03 16:35:52,129 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 1.3e+06  wall_t: 309  opt_step: 243744  frame: 1.3e+06  fps: 4207.12  total_reward: -133.031  total_reward_ma: -142.531  loss: 3.6916  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:35:52,138 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -142.531  strength: 57.4688  max_strength: 72.0625  final_strength: 66.9688  sample_efficiency: 1.76921e-06  training_efficiency: 9.43659e-06  stability: 0.930619
+[2022-09-03 16:36:16,019 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 1.4e+06  wall_t: 333  opt_step: 262494  frame: 1.4e+06  fps: 4204.2  total_reward: -128.438  total_reward_ma: -141.525  loss: 6.92575  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:36:16,027 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -141.525  strength: 58.4754  max_strength: 72.0625  final_strength: 71.5625  sample_efficiency: 1.677e-06  training_efficiency: 8.94471e-06  stability: 0.936839
+[2022-09-03 16:36:39,931 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 1.5e+06  wall_t: 357  opt_step: 281244  frame: 1.5e+06  fps: 4201.68  total_reward: -123.375  total_reward_ma: -140.315  loss: 4.94029  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:36:39,941 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -140.315  strength: 59.6854  max_strength: 76.625  final_strength: 76.625  sample_efficiency: 1.59053e-06  training_efficiency: 8.48347e-06  stability: 0.94236
+[2022-09-03 16:37:04,058 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 1.6e+06  wall_t: 381  opt_step: 299994  frame: 1.6e+06  fps: 4199.48  total_reward: -126.875  total_reward_ma: -139.475  loss: 4.28509  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:37:04,072 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -139.475  strength: 60.5254  max_strength: 76.625  final_strength: 73.125  sample_efficiency: 1.51762e-06  training_efficiency: 8.09459e-06  stability: 0.943384
+[2022-09-03 16:37:28,434 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 1.7e+06  wall_t: 406  opt_step: 318744  frame: 1.7e+06  fps: 4187.19  total_reward: -126.406  total_reward_ma: -138.706  loss: 6.16875  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:37:28,442 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -138.706  strength: 61.2941  max_strength: 76.625  final_strength: 73.5938  sample_efficiency: 1.45198e-06  training_efficiency: 7.74447e-06  stability: 0.947659
+[2022-09-03 16:37:52,724 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 1.8e+06  wall_t: 430  opt_step: 337494  frame: 1.8e+06  fps: 4186.05  total_reward: -99.625  total_reward_ma: -136.535  loss: 3.34492  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:37:52,733 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -136.535  strength: 63.4653  max_strength: 100.375  final_strength: 100.375  sample_efficiency: 1.37321e-06  training_efficiency: 7.32435e-06  stability: 0.951356
+[2022-09-03 16:38:16,955 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 1.9e+06  wall_t: 454  opt_step: 356244  frame: 1.9e+06  fps: 4185.02  total_reward: -114.469  total_reward_ma: -135.373  loss: 6.29329  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:38:16,973 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -135.373  strength: 64.6266  max_strength: 100.375  final_strength: 85.5312  sample_efficiency: 1.31422e-06  training_efficiency: 7.00969e-06  stability: 0.942636
+[2022-09-03 16:38:41,788 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 2e+06  wall_t: 479  opt_step: 374994  frame: 2e+06  fps: 4175.37  total_reward: -98.25  total_reward_ma: -133.517  loss: 5.36384  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:38:41,802 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -133.517  strength: 66.4828  max_strength: 101.75  final_strength: 101.75  sample_efficiency: 1.25191e-06  training_efficiency: 6.67735e-06  stability: 0.946632
+[2022-09-03 16:39:05,998 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 2.1e+06  wall_t: 503  opt_step: 393744  frame: 2.1e+06  fps: 4174.95  total_reward: -108.875  total_reward_ma: -132.344  loss: 3.49257  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:39:06,007 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -132.344  strength: 67.6562  max_strength: 101.75  final_strength: 91.125  sample_efficiency: 1.20216e-06  training_efficiency: 6.41197e-06  stability: 0.942725
+[2022-09-03 16:39:30,851 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 2.2e+06  wall_t: 528  opt_step: 412494  frame: 2.2e+06  fps: 4166.67  total_reward: -100.625  total_reward_ma: -130.902  loss: 4.45063  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:39:30,861 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -130.902  strength: 69.098  max_strength: 101.75  final_strength: 99.375  sample_efficiency: 1.15329e-06  training_efficiency: 6.15129e-06  stability: 0.946398
+[2022-09-03 16:39:55,422 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 2.3e+06  wall_t: 553  opt_step: 431244  frame: 2.3e+06  fps: 4159.13  total_reward: -107.094  total_reward_ma: -129.867  loss: 4.17478  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:39:55,440 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -129.867  strength: 70.1332  max_strength: 101.75  final_strength: 92.9062  sample_efficiency: 1.11191e-06  training_efficiency: 5.93056e-06  stability: 0.945647
+[2022-09-03 16:40:19,834 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 2.4e+06  wall_t: 577  opt_step: 449994  frame: 2.4e+06  fps: 4159.45  total_reward: -98.5938  total_reward_ma: -128.564  loss: 5.3503  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:40:19,843 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -128.564  strength: 71.4362  max_strength: 101.75  final_strength: 101.406  sample_efficiency: 1.07078e-06  training_efficiency: 5.71122e-06  stability: 0.948778
+[2022-09-03 16:40:44,118 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 2.5e+06  wall_t: 601  opt_step: 468744  frame: 2.5e+06  fps: 4159.73  total_reward: -103.875  total_reward_ma: -127.576  loss: 9.41554  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:40:44,128 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -127.576  strength: 72.4238  max_strength: 101.75  final_strength: 96.125  sample_efficiency: 1.03517e-06  training_efficiency: 5.52127e-06  stability: 0.948727
+[2022-09-03 16:41:08,245 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 2.6e+06  wall_t: 625  opt_step: 487494  frame: 2.6e+06  fps: 4160  total_reward: -95.9688  total_reward_ma: -126.361  loss: 4.99352  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:41:08,254 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -126.361  strength: 73.6394  max_strength: 104.031  final_strength: 104.031  sample_efficiency: 9.99824e-07  training_efficiency: 5.33273e-06  stability: 0.951449
+[2022-09-03 16:41:32,851 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 2.7e+06  wall_t: 650  opt_step: 506244  frame: 2.7e+06  fps: 4153.85  total_reward: -102.281  total_reward_ma: -125.469  loss: 5.29712  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:41:32,861 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -125.469  strength: 74.5312  max_strength: 104.031  final_strength: 97.7188  sample_efficiency: 9.69258e-07  training_efficiency: 5.1697e-06  stability: 0.95079
+[2022-09-03 16:41:57,414 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 2.8e+06  wall_t: 675  opt_step: 524994  frame: 2.8e+06  fps: 4148.15  total_reward: -105.875  total_reward_ma: -124.769  loss: 6.19204  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:41:57,423 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -124.769  strength: 75.231  max_strength: 104.031  final_strength: 94.125  sample_efficiency: 9.41907e-07  training_efficiency: 5.02381e-06  stability: 0.951394
+[2022-09-03 16:42:22,679 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 2.9e+06  wall_t: 700  opt_step: 543744  frame: 2.9e+06  fps: 4142.86  total_reward: -102.406  total_reward_ma: -123.998  loss: 6.34377  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:42:22,692 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -123.998  strength: 76.0022  max_strength: 104.031  final_strength: 97.5938  sample_efficiency: 9.15469e-07  training_efficiency: 4.88279e-06  stability: 0.953566
+[2022-09-03 16:42:47,820 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 3e+06  wall_t: 725  opt_step: 562494  frame: 3e+06  fps: 4137.93  total_reward: -102.531  total_reward_ma: -123.282  loss: 4.363  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:42:47,830 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -123.282  strength: 76.7177  max_strength: 104.031  final_strength: 97.4688  sample_efficiency: 8.90815e-07  training_efficiency: 4.7513e-06  stability: 0.955565
+[2022-09-03 16:43:12,653 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 3.1e+06  wall_t: 750  opt_step: 581244  frame: 3.1e+06  fps: 4133.33  total_reward: -102.406  total_reward_ma: -122.609  loss: 8.63864  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:43:12,663 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -122.609  strength: 77.3911  max_strength: 104.031  final_strength: 97.5938  sample_efficiency: 8.677e-07  training_efficiency: 4.62801e-06  stability: 0.957447
+[2022-09-03 16:43:37,895 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 3.2e+06  wall_t: 775  opt_step: 599994  frame: 3.2e+06  fps: 4129.03  total_reward: -98.5  total_reward_ma: -121.855  loss: 5.26584  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:43:37,906 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -121.855  strength: 78.1445  max_strength: 104.031  final_strength: 101.5  sample_efficiency: 8.45165e-07  training_efficiency: 4.50781e-06  stability: 0.959178
+[2022-09-03 16:44:02,965 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 3.3e+06  wall_t: 800  opt_step: 618744  frame: 3.3e+06  fps: 4125  total_reward: -105.625  total_reward_ma: -121.364  loss: 11.2435  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:44:02,975 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -121.364  strength: 78.6364  max_strength: 104.031  final_strength: 94.375  sample_efficiency: 8.25448e-07  training_efficiency: 4.40264e-06  stability: 0.957986
+[2022-09-03 16:44:28,214 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 3.4e+06  wall_t: 825  opt_step: 637494  frame: 3.4e+06  fps: 4121.21  total_reward: -99.5312  total_reward_ma: -120.722  loss: 6.58492  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:44:28,223 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -120.722  strength: 79.2785  max_strength: 104.031  final_strength: 100.469  sample_efficiency: 8.05644e-07  training_efficiency: 4.29701e-06  stability: 0.959513
+[2022-09-03 16:44:53,798 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 3.5e+06  wall_t: 851  opt_step: 656244  frame: 3.5e+06  fps: 4112.81  total_reward: -97.375  total_reward_ma: -120.054  loss: 5.93424  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:44:53,807 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -120.054  strength: 79.9455  max_strength: 104.031  final_strength: 102.625  sample_efficiency: 7.86575e-07  training_efficiency: 4.1953e-06  stability: 0.961023
+[2022-09-03 16:45:18,937 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 3.6e+06  wall_t: 876  opt_step: 674994  frame: 3.6e+06  fps: 4109.59  total_reward: -101.812  total_reward_ma: -119.548  loss: 5.07128  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:45:18,947 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -119.548  strength: 80.4523  max_strength: 104.031  final_strength: 98.1875  sample_efficiency: 7.69326e-07  training_efficiency: 4.1033e-06  stability: 0.960866
+[2022-09-03 16:45:43,629 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 3.7e+06  wall_t: 901  opt_step: 693744  frame: 3.7e+06  fps: 4106.55  total_reward: -104.656  total_reward_ma: -119.145  loss: 7.59123  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:45:43,638 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -119.145  strength: 80.8547  max_strength: 104.031  final_strength: 95.3438  sample_efficiency: 7.53421e-07  training_efficiency: 4.01846e-06  stability: 0.961211
+[2022-09-03 16:46:08,371 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 3.8e+06  wall_t: 926  opt_step: 712494  frame: 3.8e+06  fps: 4103.67  total_reward: -103.969  total_reward_ma: -118.746  loss: 7.09095  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:46:08,381 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -118.746  strength: 81.2541  max_strength: 104.031  final_strength: 96.0312  sample_efficiency: 7.38173e-07  training_efficiency: 3.93714e-06  stability: 0.962447
+[2022-09-03 16:46:33,659 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 3.9e+06  wall_t: 951  opt_step: 731244  frame: 3.9e+06  fps: 4100.95  total_reward: -105.469  total_reward_ma: -118.405  loss: 6.11162  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:46:33,668 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -118.405  strength: 81.5946  max_strength: 104.031  final_strength: 94.5312  sample_efficiency: 7.23861e-07  training_efficiency: 3.8608e-06  stability: 0.963129
+[2022-09-03 16:46:58,414 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 4e+06  wall_t: 976  opt_step: 749994  frame: 4e+06  fps: 4098.36  total_reward: -101.844  total_reward_ma: -117.991  loss: 9.18575  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:46:58,424 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -117.991  strength: 82.0086  max_strength: 104.031  final_strength: 98.1562  sample_efficiency: 7.09682e-07  training_efficiency: 3.78517e-06  stability: 0.964225
+[2022-09-03 16:47:23,835 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 4.1e+06  wall_t: 1001  opt_step: 768744  frame: 4.1e+06  fps: 4095.9  total_reward: -99.8438  total_reward_ma: -117.549  loss: 8.11187  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:47:23,849 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -117.549  strength: 82.4512  max_strength: 104.031  final_strength: 100.156  sample_efficiency: 6.95882e-07  training_efficiency: 3.71157e-06  stability: 0.965295
+[2022-09-03 16:47:48,742 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 4.2e+06  wall_t: 1026  opt_step: 787494  frame: 4.2e+06  fps: 4093.57  total_reward: -112.75  total_reward_ma: -117.435  loss: 6.23644  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:47:48,756 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -117.435  strength: 82.5655  max_strength: 104.031  final_strength: 87.25  sample_efficiency: 6.84364e-07  training_efficiency: 3.65013e-06  stability: 0.962506
+[2022-09-03 16:48:13,927 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 4.3e+06  wall_t: 1051  opt_step: 806244  frame: 4.3e+06  fps: 4091.34  total_reward: -104.312  total_reward_ma: -117.129  loss: 8.71708  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:48:13,936 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -117.129  strength: 82.8706  max_strength: 104.031  final_strength: 95.6875  sample_efficiency: 6.72232e-07  training_efficiency: 3.58542e-06  stability: 0.963449
+[2022-09-03 16:48:38,872 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 4.4e+06  wall_t: 1076  opt_step: 824994  frame: 4.4e+06  fps: 4089.22  total_reward: -101.688  total_reward_ma: -116.778  loss: 7.96353  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:48:38,882 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -116.778  strength: 83.2216  max_strength: 104.031  final_strength: 98.3125  sample_efficiency: 6.60286e-07  training_efficiency: 3.52171e-06  stability: 0.96443
+[2022-09-03 16:49:03,695 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 4.5e+06  wall_t: 1101  opt_step: 843744  frame: 4.5e+06  fps: 4087.19  total_reward: -100.75  total_reward_ma: -116.422  loss: 7.72263  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:49:03,704 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -116.422  strength: 83.5778  max_strength: 104.031  final_strength: 99.25  sample_efficiency: 6.48725e-07  training_efficiency: 3.46005e-06  stability: 0.965385
+[2022-09-03 16:49:28,224 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 4.6e+06  wall_t: 1125  opt_step: 862494  frame: 4.6e+06  fps: 4088.89  total_reward: -102.656  total_reward_ma: -116.123  loss: 8.04365  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:49:28,233 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -116.123  strength: 83.877  max_strength: 104.031  final_strength: 97.3438  sample_efficiency: 6.37843e-07  training_efficiency: 3.402e-06  stability: 0.965792
+[2022-09-03 16:49:52,842 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 4.7e+06  wall_t: 1150  opt_step: 881244  frame: 4.7e+06  fps: 4086.96  total_reward: -103.562  total_reward_ma: -115.856  loss: 7.1454  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:49:52,852 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -115.856  strength: 84.1443  max_strength: 104.031  final_strength: 96.4375  sample_efficiency: 6.27478e-07  training_efficiency: 3.34672e-06  stability: 0.96642
+[2022-09-03 16:50:17,728 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 4.8e+06  wall_t: 1175  opt_step: 899994  frame: 4.8e+06  fps: 4085.11  total_reward: -104.031  total_reward_ma: -115.609  loss: 7.81104  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:50:17,738 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -115.609  strength: 84.3906  max_strength: 104.031  final_strength: 95.9688  sample_efficiency: 6.17547e-07  training_efficiency: 3.29375e-06  stability: 0.96712
+[2022-09-03 16:50:42,974 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 4.9e+06  wall_t: 1200  opt_step: 918744  frame: 4.9e+06  fps: 4083.33  total_reward: -105.219  total_reward_ma: -115.397  loss: 8.43538  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:50:42,984 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -115.397  strength: 84.6027  max_strength: 104.031  final_strength: 94.7812  sample_efficiency: 6.08094e-07  training_efficiency: 3.24333e-06  stability: 0.967606
+[2022-09-03 16:51:07,917 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 5e+06  wall_t: 1225  opt_step: 937494  frame: 5e+06  fps: 4081.63  total_reward: -101.156  total_reward_ma: -115.113  loss: 5.73542  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:51:07,927 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -115.113  strength: 84.8875  max_strength: 104.031  final_strength: 98.8438  sample_efficiency: 5.9859e-07  training_efficiency: 3.19264e-06  stability: 0.968347
+[2022-09-03 16:51:32,853 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 5.1e+06  wall_t: 1250  opt_step: 956244  frame: 5.1e+06  fps: 4080  total_reward: -112.562  total_reward_ma: -115.062  loss: 10.4932  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:51:32,862 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -115.062  strength: 84.9375  max_strength: 104.031  final_strength: 87.4375  sample_efficiency: 5.90466e-07  training_efficiency: 3.14931e-06  stability: 0.966397
+[2022-09-03 16:51:57,548 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 5.2e+06  wall_t: 1275  opt_step: 974994  frame: 5.2e+06  fps: 4078.43  total_reward: -102.875  total_reward_ma: -114.828  loss: 9.73371  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:51:57,558 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -114.828  strength: 85.1719  max_strength: 104.031  final_strength: 97.125  sample_efficiency: 5.81734e-07  training_efficiency: 3.10273e-06  stability: 0.967075
+[2022-09-03 16:52:22,230 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 5.3e+06  wall_t: 1299  opt_step: 993744  frame: 5.3e+06  fps: 4080.06  total_reward: -102.844  total_reward_ma: -114.602  loss: 3.92251  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:52:22,239 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -114.602  strength: 85.398  max_strength: 104.031  final_strength: 97.1562  sample_efficiency: 5.73297e-07  training_efficiency: 3.05773e-06  stability: 0.967797
+[2022-09-03 16:52:46,813 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 5.4e+06  wall_t: 1324  opt_step: 1.01249e+06  frame: 5.4e+06  fps: 4078.55  total_reward: -105.062  total_reward_ma: -114.425  loss: 3.93482  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:52:46,823 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -114.425  strength: 85.5747  max_strength: 104.031  final_strength: 94.9375  sample_efficiency: 5.65323e-07  training_efficiency: 3.0152e-06  stability: 0.967998
+[2022-09-03 16:53:12,702 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 5.5e+06  wall_t: 1350  opt_step: 1.03124e+06  frame: 5.5e+06  fps: 4074.07  total_reward: -105.281  total_reward_ma: -114.259  loss: 8.13682  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:53:12,712 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -114.259  strength: 85.7409  max_strength: 104.031  final_strength: 94.7188  sample_efficiency: 5.5762e-07  training_efficiency: 2.97412e-06  stability: 0.968608
+[2022-09-03 16:53:37,846 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 5.6e+06  wall_t: 1375  opt_step: 1.04999e+06  frame: 5.6e+06  fps: 4072.73  total_reward: -102.781  total_reward_ma: -114.054  loss: 4.57152  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:53:37,857 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -114.054  strength: 85.9459  max_strength: 104.031  final_strength: 97.2188  sample_efficiency: 5.49964e-07  training_efficiency: 2.93328e-06  stability: 0.969239
+[2022-09-03 16:54:02,751 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 5.7e+06  wall_t: 1400  opt_step: 1.06874e+06  frame: 5.7e+06  fps: 4071.43  total_reward: -100.938  total_reward_ma: -113.824  loss: 7.81143  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:54:02,761 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -113.824  strength: 86.176  max_strength: 104.031  final_strength: 99.0625  sample_efficiency: 5.42411e-07  training_efficiency: 2.89299e-06  stability: 0.96986
+[2022-09-03 16:54:27,809 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 5.8e+06  wall_t: 1425  opt_step: 1.08749e+06  frame: 5.8e+06  fps: 4070.18  total_reward: -101.125  total_reward_ma: -113.605  loss: 9.0924  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:54:27,819 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -113.605  strength: 86.3949  max_strength: 104.031  final_strength: 98.875  sample_efficiency: 5.3511e-07  training_efficiency: 2.85405e-06  stability: 0.97043
+[2022-09-03 16:54:52,766 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 5.9e+06  wall_t: 1450  opt_step: 1.10624e+06  frame: 5.9e+06  fps: 4068.97  total_reward: -102.844  total_reward_ma: -113.423  loss: 5.18806  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:54:52,775 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -113.423  strength: 86.5773  max_strength: 104.031  final_strength: 97.1562  sample_efficiency: 5.28156e-07  training_efficiency: 2.81696e-06  stability: 0.97067
+[2022-09-03 16:55:18,042 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 6e+06  wall_t: 1475  opt_step: 1.12499e+06  frame: 6e+06  fps: 4067.8  total_reward: -105.219  total_reward_ma: -113.286  loss: 7.34704  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:55:18,055 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -113.286  strength: 86.7141  max_strength: 104.031  final_strength: 94.7812  sample_efficiency: 5.2157e-07  training_efficiency: 2.78184e-06  stability: 0.970763
+[2022-09-03 16:55:42,996 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 6.1e+06  wall_t: 1500  opt_step: 1.14374e+06  frame: 6.1e+06  fps: 4066.67  total_reward: -104.031  total_reward_ma: -113.134  loss: 5.26054  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:55:43,004 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -113.134  strength: 86.8658  max_strength: 104.031  final_strength: 95.9688  sample_efficiency: 5.15093e-07  training_efficiency: 2.74729e-06  stability: 0.971296
+[2022-09-03 16:56:08,200 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 6.2e+06  wall_t: 1525  opt_step: 1.16249e+06  frame: 6.2e+06  fps: 4065.57  total_reward: -100.719  total_reward_ma: -112.934  loss: 9.59982  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:56:08,210 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -112.934  strength: 87.066  max_strength: 104.031  final_strength: 99.2812  sample_efficiency: 5.08586e-07  training_efficiency: 2.71258e-06  stability: 0.971816
+[2022-09-03 16:56:32,545 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 6.3e+06  wall_t: 1550  opt_step: 1.18124e+06  frame: 6.3e+06  fps: 4064.52  total_reward: -97  total_reward_ma: -112.681  loss: 5.83608  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:56:32,554 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -112.681  strength: 87.3189  max_strength: 104.031  final_strength: 103  sample_efficiency: 5.02035e-07  training_efficiency: 2.67765e-06  stability: 0.972334
+[2022-09-03 16:56:58,148 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 6.4e+06  wall_t: 1575  opt_step: 1.19999e+06  frame: 6.4e+06  fps: 4063.49  total_reward: -98.9062  total_reward_ma: -112.466  loss: 6.82948  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:56:58,158 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -112.466  strength: 87.5342  max_strength: 104.031  final_strength: 101.094  sample_efficiency: 4.95796e-07  training_efficiency: 2.64436e-06  stability: 0.972505
+[2022-09-03 16:57:24,575 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 6.5e+06  wall_t: 1602  opt_step: 1.21874e+06  frame: 6.5e+06  fps: 4057.43  total_reward: -110.5  total_reward_ma: -112.436  loss: 10.213  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:57:24,589 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -112.436  strength: 87.5644  max_strength: 104.031  final_strength: 89.5  sample_efficiency: 4.90419e-07  training_efficiency: 2.61569e-06  stability: 0.970932
+[2022-09-03 16:57:50,916 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 6.6e+06  wall_t: 1628  opt_step: 1.23749e+06  frame: 6.6e+06  fps: 4054.05  total_reward: -108.125  total_reward_ma: -112.37  loss: 7.87127  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:57:50,930 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -112.37  strength: 87.6297  max_strength: 104.031  final_strength: 91.875  sample_efficiency: 4.85035e-07  training_efficiency: 2.58697e-06  stability: 0.971389
+[2022-09-03 16:58:17,230 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 6.7e+06  wall_t: 1654  opt_step: 1.25624e+06  frame: 6.7e+06  fps: 4050.79  total_reward: -106  total_reward_ma: -112.275  loss: 8.22232  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:58:17,240 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -112.275  strength: 87.7248  max_strength: 104.031  final_strength: 94  sample_efficiency: 4.79665e-07  training_efficiency: 2.55833e-06  stability: 0.971844
+[2022-09-03 16:58:43,099 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 6.8e+06  wall_t: 1680  opt_step: 1.27499e+06  frame: 6.8e+06  fps: 4047.62  total_reward: -101  total_reward_ma: -112.109  loss: 8.59808  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:58:43,109 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -112.109  strength: 87.8906  max_strength: 104.031  final_strength: 99  sample_efficiency: 4.74155e-07  training_efficiency: 2.52894e-06  stability: 0.972294
+[2022-09-03 16:59:08,344 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 6.9e+06  wall_t: 1706  opt_step: 1.29374e+06  frame: 6.9e+06  fps: 4044.55  total_reward: -101.469  total_reward_ma: -111.955  loss: 8.58395  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:59:08,354 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -111.955  strength: 88.0448  max_strength: 104.031  final_strength: 98.5312  sample_efficiency: 4.68816e-07  training_efficiency: 2.50046e-06  stability: 0.972675
+[2022-09-03 16:59:33,414 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 7e+06  wall_t: 1731  opt_step: 1.31249e+06  frame: 7e+06  fps: 4043.91  total_reward: -99.6875  total_reward_ma: -111.78  loss: 9.64278  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:59:33,423 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -111.78  strength: 88.2201  max_strength: 104.031  final_strength: 100.312  sample_efficiency: 4.63521e-07  training_efficiency: 2.47222e-06  stability: 0.973118
+[2022-09-03 16:59:58,699 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 7.1e+06  wall_t: 1756  opt_step: 1.33124e+06  frame: 7.1e+06  fps: 4043.28  total_reward: -99.3438  total_reward_ma: -111.605  loss: 9.0905  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 16:59:58,708 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -111.605  strength: 88.3952  max_strength: 104.031  final_strength: 100.656  sample_efficiency: 4.58346e-07  training_efficiency: 2.44462e-06  stability: 0.973554
+[2022-09-03 17:00:23,901 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 7.2e+06  wall_t: 1781  opt_step: 1.34999e+06  frame: 7.2e+06  fps: 4042.67  total_reward: -101.656  total_reward_ma: -111.467  loss: 8.62289  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:00:23,911 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -111.467  strength: 88.5334  max_strength: 104.031  final_strength: 98.3438  sample_efficiency: 4.53417e-07  training_efficiency: 2.41833e-06  stability: 0.97361
+[2022-09-03 17:00:48,855 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 7.3e+06  wall_t: 1806  opt_step: 1.36874e+06  frame: 7.3e+06  fps: 4042.08  total_reward: -106.562  total_reward_ma: -111.399  loss: 7.05566  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:00:48,869 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -111.399  strength: 88.6006  max_strength: 104.031  final_strength: 93.4375  sample_efficiency: 4.48846e-07  training_efficiency: 2.39395e-06  stability: 0.973248
+[2022-09-03 17:01:13,772 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 7.4e+06  wall_t: 1831  opt_step: 1.38749e+06  frame: 7.4e+06  fps: 4041.51  total_reward: -100.625  total_reward_ma: -111.254  loss: 9.18605  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:01:13,781 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -111.254  strength: 88.7462  max_strength: 104.031  final_strength: 99.375  sample_efficiency: 4.44099e-07  training_efficiency: 2.36863e-06  stability: 0.973634
+[2022-09-03 17:01:38,435 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 7.5e+06  wall_t: 1856  opt_step: 1.40624e+06  frame: 7.5e+06  fps: 4040.95  total_reward: -100.594  total_reward_ma: -111.112  loss: 6.46005  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:01:38,445 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -111.112  strength: 88.8883  max_strength: 104.031  final_strength: 99.4062  sample_efficiency: 4.39465e-07  training_efficiency: 2.34391e-06  stability: 0.974033
+[2022-09-03 17:02:03,444 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 7.6e+06  wall_t: 1881  opt_step: 1.42499e+06  frame: 7.6e+06  fps: 4040.4  total_reward: -96.1562  total_reward_ma: -110.915  loss: 5.53364  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:02:03,454 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -110.915  strength: 89.0851  max_strength: 104.031  final_strength: 103.844  sample_efficiency: 4.34743e-07  training_efficiency: 2.31873e-06  stability: 0.97442
+[2022-09-03 17:02:28,084 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 7.7e+06  wall_t: 1905  opt_step: 1.44374e+06  frame: 7.7e+06  fps: 4041.99  total_reward: -107.531  total_reward_ma: -110.871  loss: 4.92551  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:02:28,098 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -110.871  strength: 89.1291  max_strength: 104.031  final_strength: 92.4688  sample_efficiency: 4.30635e-07  training_efficiency: 2.29682e-06  stability: 0.973132
+[2022-09-03 17:02:53,307 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 7.8e+06  wall_t: 1930  opt_step: 1.46249e+06  frame: 7.8e+06  fps: 4041.45  total_reward: -96.9062  total_reward_ma: -110.692  loss: 6.16513  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:02:53,317 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -110.692  strength: 89.3081  max_strength: 104.031  final_strength: 103.094  sample_efficiency: 4.26159e-07  training_efficiency: 2.27295e-06  stability: 0.973494
+[2022-09-03 17:03:17,823 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 7.9e+06  wall_t: 1955  opt_step: 1.48124e+06  frame: 7.9e+06  fps: 4040.92  total_reward: -103.875  total_reward_ma: -110.606  loss: 11.5228  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:03:17,833 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -110.606  strength: 89.3944  max_strength: 104.031  final_strength: 96.125  sample_efficiency: 4.22081e-07  training_efficiency: 2.2512e-06  stability: 0.972886
+[2022-09-03 17:03:42,414 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 8e+06  wall_t: 1980  opt_step: 1.49999e+06  frame: 8e+06  fps: 4040.4  total_reward: -98.4062  total_reward_ma: -110.453  loss: 6.56707  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:03:42,424 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -110.453  strength: 89.5469  max_strength: 104.031  final_strength: 101.594  sample_efficiency: 4.17868e-07  training_efficiency: 2.22873e-06  stability: 0.973255
+[2022-09-03 17:04:07,436 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 8.1e+06  wall_t: 2005  opt_step: 1.51874e+06  frame: 8.1e+06  fps: 4039.9  total_reward: -101.062  total_reward_ma: -110.337  loss: 7.1096  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:04:07,446 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -110.337  strength: 89.6628  max_strength: 104.031  final_strength: 98.9375  sample_efficiency: 4.13858e-07  training_efficiency: 2.20733e-06  stability: 0.973264
+[2022-09-03 17:04:31,872 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 8.2e+06  wall_t: 2029  opt_step: 1.53749e+06  frame: 8.2e+06  fps: 4041.4  total_reward: -100.156  total_reward_ma: -110.213  loss: 8.17355  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:04:31,882 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -110.213  strength: 89.787  max_strength: 104.031  final_strength: 99.8438  sample_efficiency: 4.09899e-07  training_efficiency: 2.18622e-06  stability: 0.973628
+[2022-09-03 17:04:56,546 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 8.3e+06  wall_t: 2054  opt_step: 1.55624e+06  frame: 8.3e+06  fps: 4040.9  total_reward: -101.5  total_reward_ma: -110.108  loss: 2.40811  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:04:56,556 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -110.108  strength: 89.8919  max_strength: 104.031  final_strength: 98.5  sample_efficiency: 4.06078e-07  training_efficiency: 2.16584e-06  stability: 0.973803
+[2022-09-03 17:05:21,464 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 8.4e+06  wall_t: 2079  opt_step: 1.57499e+06  frame: 8.4e+06  fps: 4040.4  total_reward: -99.75  total_reward_ma: -109.985  loss: 6.45773  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:05:21,475 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -109.985  strength: 90.0153  max_strength: 104.031  final_strength: 100.25  sample_efficiency: 4.02273e-07  training_efficiency: 2.14554e-06  stability: 0.974149
+[2022-09-03 17:05:45,919 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 8.5e+06  wall_t: 2103  opt_step: 1.59374e+06  frame: 8.5e+06  fps: 4041.84  total_reward: -96.75  total_reward_ma: -109.829  loss: 6.49516  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:05:45,930 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -109.829  strength: 90.171  max_strength: 104.031  final_strength: 103.25  sample_efficiency: 3.98438e-07  training_efficiency: 2.12509e-06  stability: 0.974492
+[2022-09-03 17:06:10,637 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 8.6e+06  wall_t: 2128  opt_step: 1.61249e+06  frame: 8.6e+06  fps: 4041.35  total_reward: -99.1875  total_reward_ma: -109.705  loss: 4.51541  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:06:10,651 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -109.705  strength: 90.2947  max_strength: 104.031  final_strength: 100.812  sample_efficiency: 3.94775e-07  training_efficiency: 2.10556e-06  stability: 0.974517
+[2022-09-03 17:06:34,738 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 8.7e+06  wall_t: 2152  opt_step: 1.63124e+06  frame: 8.7e+06  fps: 4042.75  total_reward: -106.438  total_reward_ma: -109.668  loss: 8.05177  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:06:34,753 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -109.668  strength: 90.3323  max_strength: 104.031  final_strength: 93.5625  sample_efficiency: 3.91444e-07  training_efficiency: 2.08779e-06  stability: 0.973915
+[2022-09-03 17:06:59,566 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 8.8e+06  wall_t: 2177  opt_step: 1.64999e+06  frame: 8.8e+06  fps: 4042.26  total_reward: -99.9688  total_reward_ma: -109.558  loss: 7.74605  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:06:59,576 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -109.558  strength: 90.4425  max_strength: 104.031  final_strength: 100.031  sample_efficiency: 3.87952e-07  training_efficiency: 2.06916e-06  stability: 0.974225
+[2022-09-03 17:07:24,204 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 8.9e+06  wall_t: 2201  opt_step: 1.66874e+06  frame: 8.9e+06  fps: 4043.62  total_reward: -100.125  total_reward_ma: -109.452  loss: 6.92411  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:07:24,214 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -109.452  strength: 90.5485  max_strength: 104.031  final_strength: 99.875  sample_efficiency: 3.84537e-07  training_efficiency: 2.05095e-06  stability: 0.974529
+[2022-09-03 17:07:48,643 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 9e+06  wall_t: 2226  opt_step: 1.68749e+06  frame: 9e+06  fps: 4043.13  total_reward: -103.656  total_reward_ma: -109.387  loss: 8.53174  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:07:48,653 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -109.387  strength: 90.6128  max_strength: 104.031  final_strength: 96.3438  sample_efficiency: 3.81307e-07  training_efficiency: 2.03372e-06  stability: 0.974407
+[2022-09-03 17:08:13,292 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 9.1e+06  wall_t: 2250  opt_step: 1.70624e+06  frame: 9.1e+06  fps: 4044.44  total_reward: -107.406  total_reward_ma: -109.365  loss: 5.34338  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:08:13,302 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -109.365  strength: 90.6346  max_strength: 104.031  final_strength: 92.5938  sample_efficiency: 3.78259e-07  training_efficiency: 2.01747e-06  stability: 0.974249
+[2022-09-03 17:08:38,124 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 9.2e+06  wall_t: 2275  opt_step: 1.72499e+06  frame: 9.2e+06  fps: 4043.96  total_reward: -103.219  total_reward_ma: -109.299  loss: 5.68417  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:08:38,134 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -109.299  strength: 90.7014  max_strength: 104.031  final_strength: 96.7812  sample_efficiency: 3.75133e-07  training_efficiency: 2.00079e-06  stability: 0.974539
+[2022-09-03 17:09:02,469 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 9.3e+06  wall_t: 2300  opt_step: 1.74374e+06  frame: 9.3e+06  fps: 4043.48  total_reward: -101.062  total_reward_ma: -109.21  loss: 6.4294  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:09:02,480 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -109.21  strength: 90.79  max_strength: 104.031  final_strength: 98.9375  sample_efficiency: 3.71997e-07  training_efficiency: 1.98407e-06  stability: 0.974834
+[2022-09-03 17:09:27,049 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 9.4e+06  wall_t: 2324  opt_step: 1.76249e+06  frame: 9.4e+06  fps: 4044.75  total_reward: -99.6562  total_reward_ma: -109.108  loss: 7.37682  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:09:27,060 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -109.108  strength: 90.8916  max_strength: 104.031  final_strength: 100.344  sample_efficiency: 3.68878e-07  training_efficiency: 1.96743e-06  stability: 0.975129
+[2022-09-03 17:09:51,799 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 9.5e+06  wall_t: 2349  opt_step: 1.78124e+06  frame: 9.5e+06  fps: 4044.27  total_reward: -97.5938  total_reward_ma: -108.987  loss: 7.65134  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:09:51,808 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -108.987  strength: 91.0128  max_strength: 104.031  final_strength: 102.406  sample_efficiency: 3.65756e-07  training_efficiency: 1.95078e-06  stability: 0.975421
+[2022-09-03 17:10:16,494 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 9.6e+06  wall_t: 2374  opt_step: 1.79999e+06  frame: 9.6e+06  fps: 4043.81  total_reward: -98.5625  total_reward_ma: -108.879  loss: 8.92404  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:10:16,504 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -108.879  strength: 91.1214  max_strength: 104.031  final_strength: 101.438  sample_efficiency: 3.62722e-07  training_efficiency: 1.9346e-06  stability: 0.9756
+[2022-09-03 17:10:41,262 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 9.7e+06  wall_t: 2398  opt_step: 1.81874e+06  frame: 9.7e+06  fps: 4045.04  total_reward: -109.344  total_reward_ma: -108.883  loss: 7.7534  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:10:41,270 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -108.883  strength: 91.1166  max_strength: 104.031  final_strength: 90.6562  sample_efficiency: 3.60059e-07  training_efficiency: 1.92039e-06  stability: 0.97465
+[2022-09-03 17:11:05,754 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 9.8e+06  wall_t: 2423  opt_step: 1.83749e+06  frame: 9.8e+06  fps: 4044.57  total_reward: -101.625  total_reward_ma: -108.809  loss: 3.35337  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:11:05,770 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -108.809  strength: 91.1907  max_strength: 104.031  final_strength: 98.375  sample_efficiency: 3.57219e-07  training_efficiency: 1.90524e-06  stability: 0.97491
+[2022-09-03 17:11:30,483 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 9.9e+06  wall_t: 2448  opt_step: 1.85624e+06  frame: 9.9e+06  fps: 4044.12  total_reward: -101.375  total_reward_ma: -108.734  loss: 3.58841  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:11:30,493 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -108.734  strength: 91.2658  max_strength: 104.031  final_strength: 98.625  sample_efficiency: 3.54422e-07  training_efficiency: 1.89033e-06  stability: 0.975187
+[2022-09-03 17:11:55,446 PID:186152 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 1e+07  wall_t: 2473  opt_step: 1.87499e+06  frame: 1e+07  fps: 4043.67  total_reward: -101.719  total_reward_ma: -108.664  loss: 9.32114  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:11:55,455 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df metrics] final_return_ma: -108.664  strength: 91.3359  max_strength: 104.031  final_strength: 98.2812  sample_efficiency: 3.51684e-07  training_efficiency: 1.87573e-06  stability: 0.975419
+[2022-09-03 17:11:56,490 PID:186152 INFO __init__.py log_metrics] Trial 0 session 1 ddqn_per_test_t0_s1 [eval_df metrics] final_return_ma: -108.664  strength: 91.3359  max_strength: 104.031  final_strength: 98.2812  sample_efficiency: 3.51684e-07  training_efficiency: 1.87573e-06  stability: 0.975419
+[2022-09-03 17:11:56,522 PID:186152 INFO logger.py info] Session 1 done
+[2022-09-03 17:15:56,084 PID:200463 INFO openai.py __init__] OpenAIEnv:
+- env_spec = {'max_frame': 10000000,
+ 'max_t': None,
+ 'name': 'MountainCar-v0',
+ 'normalize_state': False,
+ 'num_envs': 32}
+- eval_frequency = 100000
+- log_frequency = 100000
+- frame_op = None
+- frame_op_len = None
+- image_downsize = (84, 84)
+- normalize_state = False
+- reward_scale = None
+- num_envs = 32
+- name = MountainCar-v0
+- max_t = 200
+- max_frame = 10000000
+- to_render = True
+- is_venv = True
+- clock_speed = 32
+- clock = <slm_lab.env.base.Clock object at 0x7fe3763bbc88>
+- done = False
+- total_reward = nan
+- u_env = <slm_lab.env.vec_env.ShmemVecEnv object at 0x7fe285e056a0>
+- observation_space = Box(2,)
+- action_space = Discrete(3)
+- observable_dim = {'state': 2}
+- action_dim = 3
+- is_discrete = True
+[2022-09-03 17:15:56,094 PID:200463 INFO net_util.py load_algorithm] Loading algorithm DoubleDQN nets ['net', 'target_net'] from data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1_ckpt-best_*.pt
+[2022-09-03 17:15:56,128 PID:200463 INFO base.py end_init_nets] Loaded algorithm models for lab_mode: enjoy
+[2022-09-03 17:15:56,131 PID:200463 INFO base.py __init__] DoubleDQN:
+- agent = <slm_lab.agent.Agent object at 0x7fe285d21e80>
+- action_pdtype = Argmax
+- action_policy = <function epsilon_greedy at 0x7fe28c81fd90>
+- explore_var_spec = {'end_step': 50000,
+ 'end_val': 0.01,
+ 'name': 'linear_decay',
+ 'start_step': 0,
+ 'start_val': 1.0}
+- training_start_step = 32
+- gamma = 0.99
+- training_batch_iter = 1
+- training_iter = 1
+- training_frequency = 1
+- to_train = 0
+- explore_var_scheduler = <slm_lab.agent.algorithm.policy_util.VarScheduler object at 0x7fe285d2a080>
+- net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- target_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- net_names = ['net', 'target_net']
+- optim = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.00025
+    weight_decay: 0
+)
+- lr_scheduler = <slm_lab.agent.net.net_util.NoOpLRScheduler object at 0x7fe285d2a9e8>
+- global_net = None
+- global_target_net = None
+- online_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- eval_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+[2022-09-03 17:15:56,132 PID:200463 INFO __init__.py __init__] Agent:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 100000,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_03_163040',
+ 'git_sha': '9102ff923d7a3e9c579edc18c6547cce94a7b77a',
+ 'graph_prepath': 'data/ddqn_per_test_2022_09_03_163040/graph/ddqn_per_test_t0_s1',
+ 'info_prepath': 'data/ddqn_per_test_2022_09_03_163040/info/ddqn_per_test_t0_s1',
+ 'log_frequency': 100000,
+ 'log_prepath': 'data/ddqn_per_test_2022_09_03_163040/log/ddqn_per_test_t0_s1',
+ 'max_session': 1,
+ 'max_trial': 1,
+ 'model_prepath': 'data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1',
+ 'prepath': 'data/ddqn_per_test_2022_09_03_163040/ddqn_per_test_t0_s1',
+ 'random_seed': 1662240755,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'search': 'RandomSearch',
+ 'session': 1,
+ 'trial': 0}
+- agent_spec = {'algorithm': {'action_pdtype': 'Argmax',
+               'action_policy': 'epsilon_greedy',
+               'explore_var_spec': {'end_step': 50000,
+                                    'end_val': 0.01,
+                                    'name': 'linear_decay',
+                                    'start_step': 0,
+                                    'start_val': 1.0},
+               'gamma': 0.99,
+               'name': 'DoubleDQN',
+               'training_batch_iter': 1,
+               'training_frequency': 1,
+               'training_iter': 1,
+               'training_start_step': 32},
+ 'memory': {'alpha': 0.6000000000000001,
+            'batch_size': 64,
+            'epsilon': 0.0001,
+            'max_size': 100000,
+            'name': 'PrioritizedReplay',
+            'use_cer': False},
+ 'name': 'DoubleDQN',
+ 'net': {'clip_grad_val': 10.0,
+         'gpu': False,
+         'hid_layers': [256, 128],
+         'hid_layers_activation': 'relu',
+         'loss_spec': {'name': 'SmoothL1Loss'},
+         'lr_scheduler_spec': None,
+         'optim_spec': {'lr': 0.00025, 'name': 'Adam'},
+         'type': 'MLPNet',
+         'update_frequency': 100,
+         'update_type': 'replace'}}
+- name = DoubleDQN
+- body = body: {
+  "agent": "<slm_lab.agent.Agent object at 0x7fe285d21e80>",
+  "env": "<slm_lab.env.openai.OpenAIEnv object at 0x7fe376456710>",
+  "a": 0,
+  "e": 0,
+  "b": 0,
+  "aeb": "(0, 0, 0)",
+  "explore_var": 0.01,
+  "entropy_coef": NaN,
+  "loss": NaN,
+  "mean_entropy": NaN,
+  "mean_grad_norm": NaN,
+  "best_total_reward_ma": -Infinity,
+  "total_reward_ma": NaN,
+  "train_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "eval_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "observation_space": "Box(2,)",
+  "action_space": "Discrete(3)",
+  "observable_dim": {
+    "state": 2
+  },
+  "state_dim": 2,
+  "action_dim": 3,
+  "is_discrete": true,
+  "action_type": "discrete",
+  "action_pdtype": "Argmax",
+  "ActionPD": "<class 'slm_lab.lib.distribution.Argmax'>",
+  "memory": "<slm_lab.agent.memory.prioritized.PrioritizedReplay object at 0x7fe285d2a358>"
+}
+- algorithm = <slm_lab.agent.algorithm.dqn.DoubleDQN object at 0x7fe285d2a3c8>
+[2022-09-03 17:15:56,132 PID:200463 INFO logger.py info] Session:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 100000,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_03_163040',
+ 'git_sha': '9102ff923d7a3e9c579edc18c6547cce94a7b77a',
+ 'graph_prepath': 'data/ddqn_per_test_2022_09_03_163040/graph/ddqn_per_test_t0_s1',
+ 'info_prepath': 'data/ddqn_per_test_2022_09_03_163040/info/ddqn_per_test_t0_s1',
+ 'log_frequency': 100000,
+ 'log_prepath': 'data/ddqn_per_test_2022_09_03_163040/log/ddqn_per_test_t0_s1',
+ 'max_session': 1,
+ 'max_trial': 1,
+ 'model_prepath': 'data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1',
+ 'prepath': 'data/ddqn_per_test_2022_09_03_163040/ddqn_per_test_t0_s1',
+ 'random_seed': 1662240755,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'search': 'RandomSearch',
+ 'session': 1,
+ 'trial': 0}
+- index = 1
+- agent = <slm_lab.agent.Agent object at 0x7fe285d21e80>
+- env = <slm_lab.env.openai.OpenAIEnv object at 0x7fe376456710>
+- eval_env = <slm_lab.env.openai.OpenAIEnv object at 0x7fe376456710>
+[2022-09-03 17:15:56,132 PID:200463 INFO logger.py info] Running RL loop for trial 0 session 1
+[2022-09-03 17:16:15,011 PID:200949 INFO openai.py __init__] OpenAIEnv:
+- env_spec = {'max_frame': 10000000,
+ 'max_t': None,
+ 'name': 'MountainCar-v0',
+ 'normalize_state': False,
+ 'num_envs': 1}
+- eval_frequency = 100000
+- log_frequency = 100000
+- frame_op = None
+- frame_op_len = None
+- image_downsize = (84, 84)
+- normalize_state = False
+- reward_scale = None
+- num_envs = 1
+- name = MountainCar-v0
+- max_t = 200
+- max_frame = 10000000
+- to_render = True
+- is_venv = False
+- clock_speed = 1
+- clock = <slm_lab.env.base.Clock object at 0x7f630cf2bc88>
+- done = False
+- total_reward = nan
+- u_env = <TrackReward<TimeLimit<MountainCarEnv<MountainCar-v0>>>>
+- observation_space = Box(2,)
+- action_space = Discrete(3)
+- observable_dim = {'state': 2}
+- action_dim = 3
+- is_discrete = True
+[2022-09-03 17:16:15,018 PID:200949 INFO net_util.py load_algorithm] Loading algorithm DoubleDQN nets ['net', 'target_net'] from data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1_ckpt-best_*.pt
+[2022-09-03 17:16:15,053 PID:200949 INFO base.py end_init_nets] Loaded algorithm models for lab_mode: enjoy
+[2022-09-03 17:16:15,056 PID:200949 INFO base.py __init__] DoubleDQN:
+- agent = <slm_lab.agent.Agent object at 0x7f621c93e358>
+- action_pdtype = Argmax
+- action_policy = <function epsilon_greedy at 0x7f62233a0d90>
+- explore_var_spec = {'end_step': 50000,
+ 'end_val': 0.01,
+ 'name': 'linear_decay',
+ 'start_step': 0,
+ 'start_val': 1.0}
+- training_start_step = 32
+- gamma = 0.99
+- training_batch_iter = 1
+- training_iter = 1
+- training_frequency = 1
+- to_train = 0
+- explore_var_scheduler = <slm_lab.agent.algorithm.policy_util.VarScheduler object at 0x7f621c8d6668>
+- net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- target_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- net_names = ['net', 'target_net']
+- optim = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.00025
+    weight_decay: 0
+)
+- lr_scheduler = <slm_lab.agent.net.net_util.NoOpLRScheduler object at 0x7f621c8d6cf8>
+- global_net = None
+- global_target_net = None
+- online_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- eval_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+[2022-09-03 17:16:15,057 PID:200949 INFO __init__.py __init__] Agent:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 100000,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_03_163040',
+ 'git_sha': '9102ff923d7a3e9c579edc18c6547cce94a7b77a',
+ 'graph_prepath': 'data/ddqn_per_test_2022_09_03_163040/graph/ddqn_per_test_t0_s1',
+ 'info_prepath': 'data/ddqn_per_test_2022_09_03_163040/info/ddqn_per_test_t0_s1',
+ 'log_frequency': 100000,
+ 'log_prepath': 'data/ddqn_per_test_2022_09_03_163040/log/ddqn_per_test_t0_s1',
+ 'max_session': 1,
+ 'max_trial': 1,
+ 'model_prepath': 'data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1',
+ 'prepath': 'data/ddqn_per_test_2022_09_03_163040/ddqn_per_test_t0_s1',
+ 'random_seed': 1662240775,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'search': 'RandomSearch',
+ 'session': 1,
+ 'trial': 0}
+- agent_spec = {'algorithm': {'action_pdtype': 'Argmax',
+               'action_policy': 'epsilon_greedy',
+               'explore_var_spec': {'end_step': 50000,
+                                    'end_val': 0.01,
+                                    'name': 'linear_decay',
+                                    'start_step': 0,
+                                    'start_val': 1.0},
+               'gamma': 0.99,
+               'name': 'DoubleDQN',
+               'training_batch_iter': 1,
+               'training_frequency': 1,
+               'training_iter': 1,
+               'training_start_step': 32},
+ 'memory': {'alpha': 0.6000000000000001,
+            'batch_size': 64,
+            'epsilon': 0.0001,
+            'max_size': 100000,
+            'name': 'PrioritizedReplay',
+            'use_cer': False},
+ 'name': 'DoubleDQN',
+ 'net': {'clip_grad_val': 10.0,
+         'gpu': False,
+         'hid_layers': [256, 128],
+         'hid_layers_activation': 'relu',
+         'loss_spec': {'name': 'SmoothL1Loss'},
+         'lr_scheduler_spec': None,
+         'optim_spec': {'lr': 0.00025, 'name': 'Adam'},
+         'type': 'MLPNet',
+         'update_frequency': 100,
+         'update_type': 'replace'}}
+- name = DoubleDQN
+- body = body: {
+  "agent": "<slm_lab.agent.Agent object at 0x7f621c93e358>",
+  "env": "<slm_lab.env.openai.OpenAIEnv object at 0x7f6223db0198>",
+  "a": 0,
+  "e": 0,
+  "b": 0,
+  "aeb": "(0, 0, 0)",
+  "explore_var": 0.01,
+  "entropy_coef": NaN,
+  "loss": NaN,
+  "mean_entropy": NaN,
+  "mean_grad_norm": NaN,
+  "best_total_reward_ma": -Infinity,
+  "total_reward_ma": NaN,
+  "train_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "eval_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "observation_space": "Box(2,)",
+  "action_space": "Discrete(3)",
+  "observable_dim": {
+    "state": 2
+  },
+  "state_dim": 2,
+  "action_dim": 3,
+  "is_discrete": true,
+  "action_type": "discrete",
+  "action_pdtype": "Argmax",
+  "ActionPD": "<class 'slm_lab.lib.distribution.Argmax'>",
+  "memory": "<slm_lab.agent.memory.prioritized.PrioritizedReplay object at 0x7f621c93e2b0>"
+}
+- algorithm = <slm_lab.agent.algorithm.dqn.DoubleDQN object at 0x7f621c8d66d8>
+[2022-09-03 17:16:15,057 PID:200949 INFO logger.py info] Session:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 100000,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_03_163040',
+ 'git_sha': '9102ff923d7a3e9c579edc18c6547cce94a7b77a',
+ 'graph_prepath': 'data/ddqn_per_test_2022_09_03_163040/graph/ddqn_per_test_t0_s1',
+ 'info_prepath': 'data/ddqn_per_test_2022_09_03_163040/info/ddqn_per_test_t0_s1',
+ 'log_frequency': 100000,
+ 'log_prepath': 'data/ddqn_per_test_2022_09_03_163040/log/ddqn_per_test_t0_s1',
+ 'max_session': 1,
+ 'max_trial': 1,
+ 'model_prepath': 'data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1',
+ 'prepath': 'data/ddqn_per_test_2022_09_03_163040/ddqn_per_test_t0_s1',
+ 'random_seed': 1662240775,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'search': 'RandomSearch',
+ 'session': 1,
+ 'trial': 0}
+- index = 1
+- agent = <slm_lab.agent.Agent object at 0x7f621c93e358>
+- env = <slm_lab.env.openai.OpenAIEnv object at 0x7f6223db0198>
+- eval_env = <slm_lab.env.openai.OpenAIEnv object at 0x7f6223db0198>
+[2022-09-03 17:16:15,057 PID:200949 INFO logger.py info] Running RL loop for trial 0 session 1
+[2022-09-03 17:16:15,255 PID:200949 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 0  wall_t: 0  opt_step: 0  frame: 0  fps: 0  total_reward: nan  total_reward_ma: nan  loss: nan  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 17:16:35,596 PID:201031 INFO openai.py __init__] OpenAIEnv:
+- env_spec = {'max_frame': 10000000,
+ 'max_t': None,
+ 'name': 'MountainCar-v0',
+ 'normalize_state': False,
+ 'num_envs': 1}
+- eval_frequency = 100000
+- log_frequency = 100000
+- frame_op = None
+- frame_op_len = None
+- image_downsize = (84, 84)
+- normalize_state = False
+- reward_scale = None
+- num_envs = 1
+- name = MountainCar-v0
+- max_t = 200
+- max_frame = 10000000
+- to_render = True
+- is_venv = False
+- clock_speed = 1
+- clock = <slm_lab.env.base.Clock object at 0x7f18d02ecc88>
+- done = False
+- total_reward = nan
+- u_env = <TrackReward<TimeLimit<MountainCarEnv<MountainCar-v0>>>>
+- observation_space = Box(2,)
+- action_space = Discrete(3)
+- observable_dim = {'state': 2}
+- action_dim = 3
+- is_discrete = True
+[2022-09-03 17:16:35,603 PID:201031 INFO net_util.py load_algorithm] Loading algorithm DoubleDQN nets ['net', 'target_net'] from data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1_ckpt-best_*.pt
+[2022-09-03 17:16:35,634 PID:201031 INFO base.py end_init_nets] Loaded algorithm models for lab_mode: enjoy
+[2022-09-03 17:16:35,637 PID:201031 INFO base.py __init__] DoubleDQN:
+- agent = <slm_lab.agent.Agent object at 0x7f17dfcfe2b0>
+- action_pdtype = Argmax
+- action_policy = <function epsilon_greedy at 0x7f17e6761d90>
+- explore_var_spec = {'end_step': 50000,
+ 'end_val': 0.01,
+ 'name': 'linear_decay',
+ 'start_step': 0,
+ 'start_val': 1.0}
+- training_start_step = 32
+- gamma = 0.99
+- training_batch_iter = 1
+- training_iter = 1
+- training_frequency = 1
+- to_train = 0
+- explore_var_scheduler = <slm_lab.agent.algorithm.policy_util.VarScheduler object at 0x7f17dfc975c0>
+- net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- target_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- net_names = ['net', 'target_net']
+- optim = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.00025
+    weight_decay: 0
+)
+- lr_scheduler = <slm_lab.agent.net.net_util.NoOpLRScheduler object at 0x7f17dfc97c50>
+- global_net = None
+- global_target_net = None
+- online_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- eval_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+[2022-09-03 17:16:35,638 PID:201031 INFO __init__.py __init__] Agent:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 100000,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_03_163040',
+ 'git_sha': '9102ff923d7a3e9c579edc18c6547cce94a7b77a',
+ 'graph_prepath': 'data/ddqn_per_test_2022_09_03_163040/graph/ddqn_per_test_t0_s1',
+ 'info_prepath': 'data/ddqn_per_test_2022_09_03_163040/info/ddqn_per_test_t0_s1',
+ 'log_frequency': 100000,
+ 'log_prepath': 'data/ddqn_per_test_2022_09_03_163040/log/ddqn_per_test_t0_s1',
+ 'max_session': 1,
+ 'max_trial': 1,
+ 'model_prepath': 'data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1',
+ 'prepath': 'data/ddqn_per_test_2022_09_03_163040/ddqn_per_test_t0_s1',
+ 'random_seed': 1662240795,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'search': 'RandomSearch',
+ 'session': 1,
+ 'trial': 0}
+- agent_spec = {'algorithm': {'action_pdtype': 'Argmax',
+               'action_policy': 'epsilon_greedy',
+               'explore_var_spec': {'end_step': 50000,
+                                    'end_val': 0.01,
+                                    'name': 'linear_decay',
+                                    'start_step': 0,
+                                    'start_val': 1.0},
+               'gamma': 0.99,
+               'name': 'DoubleDQN',
+               'training_batch_iter': 1,
+               'training_frequency': 1,
+               'training_iter': 1,
+               'training_start_step': 32},
+ 'memory': {'alpha': 0.6000000000000001,
+            'batch_size': 64,
+            'epsilon': 0.0001,
+            'max_size': 100000,
+            'name': 'PrioritizedReplay',
+            'use_cer': False},
+ 'name': 'DoubleDQN',
+ 'net': {'clip_grad_val': 10.0,
+         'gpu': False,
+         'hid_layers': [256, 128],
+         'hid_layers_activation': 'relu',
+         'loss_spec': {'name': 'SmoothL1Loss'},
+         'lr_scheduler_spec': None,
+         'optim_spec': {'lr': 0.00025, 'name': 'Adam'},
+         'type': 'MLPNet',
+         'update_frequency': 100,
+         'update_type': 'replace'}}
+- name = DoubleDQN
+- body = body: {
+  "agent": "<slm_lab.agent.Agent object at 0x7f17dfcfe2b0>",
+  "env": "<slm_lab.env.openai.OpenAIEnv object at 0x7f17e7a6f8d0>",
+  "a": 0,
+  "e": 0,
+  "b": 0,
+  "aeb": "(0, 0, 0)",
+  "explore_var": 0.01,
+  "entropy_coef": NaN,
+  "loss": NaN,
+  "mean_entropy": NaN,
+  "mean_grad_norm": NaN,
+  "best_total_reward_ma": -Infinity,
+  "total_reward_ma": NaN,
+  "train_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "eval_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "observation_space": "Box(2,)",
+  "action_space": "Discrete(3)",
+  "observable_dim": {
+    "state": 2
+  },
+  "state_dim": 2,
+  "action_dim": 3,
+  "is_discrete": true,
+  "action_type": "discrete",
+  "action_pdtype": "Argmax",
+  "ActionPD": "<class 'slm_lab.lib.distribution.Argmax'>",
+  "memory": "<slm_lab.agent.memory.prioritized.PrioritizedReplay object at 0x7f17dfcfe208>"
+}
+- algorithm = <slm_lab.agent.algorithm.dqn.DoubleDQN object at 0x7f17dfc97630>
+[2022-09-03 17:16:35,638 PID:201031 INFO logger.py info] Session:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 100000,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_03_163040',
+ 'git_sha': '9102ff923d7a3e9c579edc18c6547cce94a7b77a',
+ 'graph_prepath': 'data/ddqn_per_test_2022_09_03_163040/graph/ddqn_per_test_t0_s1',
+ 'info_prepath': 'data/ddqn_per_test_2022_09_03_163040/info/ddqn_per_test_t0_s1',
+ 'log_frequency': 100000,
+ 'log_prepath': 'data/ddqn_per_test_2022_09_03_163040/log/ddqn_per_test_t0_s1',
+ 'max_session': 1,
+ 'max_trial': 1,
+ 'model_prepath': 'data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1',
+ 'prepath': 'data/ddqn_per_test_2022_09_03_163040/ddqn_per_test_t0_s1',
+ 'random_seed': 1662240795,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'search': 'RandomSearch',
+ 'session': 1,
+ 'trial': 0}
+- index = 1
+- agent = <slm_lab.agent.Agent object at 0x7f17dfcfe2b0>
+- env = <slm_lab.env.openai.OpenAIEnv object at 0x7f17e7a6f8d0>
+- eval_env = <slm_lab.env.openai.OpenAIEnv object at 0x7f17e7a6f8d0>
+[2022-09-03 17:16:35,638 PID:201031 INFO logger.py info] Running RL loop for trial 0 session 1
+[2022-09-03 17:16:35,885 PID:201031 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 0  wall_t: 0  opt_step: 0  frame: 0  fps: 0  total_reward: nan  total_reward_ma: nan  loss: nan  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 18:05:14,423 PID:209054 INFO openai.py __init__] OpenAIEnv:
+- env_spec = {'max_frame': 10000000,
+ 'max_t': None,
+ 'name': 'MountainCar-v0',
+ 'normalize_state': False,
+ 'num_envs': 1}
+- eval_frequency = 100000
+- log_frequency = 100000
+- frame_op = None
+- frame_op_len = None
+- image_downsize = (84, 84)
+- normalize_state = False
+- reward_scale = None
+- num_envs = 1
+- name = MountainCar-v0
+- max_t = 200
+- max_frame = 10000000
+- to_render = True
+- is_venv = False
+- clock_speed = 1
+- clock = <slm_lab.env.base.Clock object at 0x7feedb4e1c88>
+- done = False
+- total_reward = nan
+- u_env = <TrackReward<TimeLimit<MountainCarEnv<MountainCar-v0>>>>
+- observation_space = Box(2,)
+- action_space = Discrete(3)
+- observable_dim = {'state': 2}
+- action_dim = 3
+- is_discrete = True
+[2022-09-03 18:05:14,431 PID:209054 INFO net_util.py load_algorithm] Loading algorithm DoubleDQN nets ['net', 'target_net'] from data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1_ckpt-best_*.pt
+[2022-09-03 18:05:14,462 PID:209054 INFO base.py end_init_nets] Loaded algorithm models for lab_mode: enjoy
+[2022-09-03 18:05:14,464 PID:209054 INFO base.py __init__] DoubleDQN:
+- agent = <slm_lab.agent.Agent object at 0x7fedeaef7320>
+- action_pdtype = Argmax
+- action_policy = <function epsilon_greedy at 0x7fedf195fd90>
+- explore_var_spec = {'end_step': 50000,
+ 'end_val': 0.01,
+ 'name': 'linear_decay',
+ 'start_step': 0,
+ 'start_val': 1.0}
+- training_start_step = 32
+- gamma = 0.99
+- training_batch_iter = 1
+- training_iter = 1
+- training_frequency = 1
+- to_train = 0
+- explore_var_scheduler = <slm_lab.agent.algorithm.policy_util.VarScheduler object at 0x7fedeae91630>
+- net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- target_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- net_names = ['net', 'target_net']
+- optim = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.00025
+    weight_decay: 0
+)
+- lr_scheduler = <slm_lab.agent.net.net_util.NoOpLRScheduler object at 0x7fedeae91c88>
+- global_net = None
+- global_target_net = None
+- online_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- eval_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+[2022-09-03 18:05:14,465 PID:209054 INFO __init__.py __init__] Agent:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 100000,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_03_163040',
+ 'git_sha': '9102ff923d7a3e9c579edc18c6547cce94a7b77a',
+ 'graph_prepath': 'data/ddqn_per_test_2022_09_03_163040/graph/ddqn_per_test_t0_s1',
+ 'info_prepath': 'data/ddqn_per_test_2022_09_03_163040/info/ddqn_per_test_t0_s1',
+ 'log_frequency': 100000,
+ 'log_prepath': 'data/ddqn_per_test_2022_09_03_163040/log/ddqn_per_test_t0_s1',
+ 'max_session': 1,
+ 'max_trial': 1,
+ 'model_prepath': 'data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1',
+ 'prepath': 'data/ddqn_per_test_2022_09_03_163040/ddqn_per_test_t0_s1',
+ 'random_seed': 1662243714,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'search': 'RandomSearch',
+ 'session': 1,
+ 'trial': 0}
+- agent_spec = {'algorithm': {'action_pdtype': 'Argmax',
+               'action_policy': 'epsilon_greedy',
+               'explore_var_spec': {'end_step': 50000,
+                                    'end_val': 0.01,
+                                    'name': 'linear_decay',
+                                    'start_step': 0,
+                                    'start_val': 1.0},
+               'gamma': 0.99,
+               'name': 'DoubleDQN',
+               'training_batch_iter': 1,
+               'training_frequency': 1,
+               'training_iter': 1,
+               'training_start_step': 32},
+ 'memory': {'alpha': 0.6000000000000001,
+            'batch_size': 64,
+            'epsilon': 0.0001,
+            'max_size': 100000,
+            'name': 'PrioritizedReplay',
+            'use_cer': False},
+ 'name': 'DoubleDQN',
+ 'net': {'clip_grad_val': 10.0,
+         'gpu': False,
+         'hid_layers': [256, 128],
+         'hid_layers_activation': 'relu',
+         'loss_spec': {'name': 'SmoothL1Loss'},
+         'lr_scheduler_spec': None,
+         'optim_spec': {'lr': 0.00025, 'name': 'Adam'},
+         'type': 'MLPNet',
+         'update_frequency': 100,
+         'update_type': 'replace'}}
+- name = DoubleDQN
+- body = body: {
+  "agent": "<slm_lab.agent.Agent object at 0x7fedeaef7320>",
+  "env": "<slm_lab.env.openai.OpenAIEnv object at 0x7fedf1a48278>",
+  "a": 0,
+  "e": 0,
+  "b": 0,
+  "aeb": "(0, 0, 0)",
+  "explore_var": 0.01,
+  "entropy_coef": NaN,
+  "loss": NaN,
+  "mean_entropy": NaN,
+  "mean_grad_norm": NaN,
+  "best_total_reward_ma": -Infinity,
+  "total_reward_ma": NaN,
+  "train_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "eval_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "observation_space": "Box(2,)",
+  "action_space": "Discrete(3)",
+  "observable_dim": {
+    "state": 2
+  },
+  "state_dim": 2,
+  "action_dim": 3,
+  "is_discrete": true,
+  "action_type": "discrete",
+  "action_pdtype": "Argmax",
+  "ActionPD": "<class 'slm_lab.lib.distribution.Argmax'>",
+  "memory": "<slm_lab.agent.memory.prioritized.PrioritizedReplay object at 0x7fedeaef7278>"
+}
+- algorithm = <slm_lab.agent.algorithm.dqn.DoubleDQN object at 0x7fedeae916a0>
+[2022-09-03 18:05:14,466 PID:209054 INFO logger.py info] Session:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 100000,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_03_163040',
+ 'git_sha': '9102ff923d7a3e9c579edc18c6547cce94a7b77a',
+ 'graph_prepath': 'data/ddqn_per_test_2022_09_03_163040/graph/ddqn_per_test_t0_s1',
+ 'info_prepath': 'data/ddqn_per_test_2022_09_03_163040/info/ddqn_per_test_t0_s1',
+ 'log_frequency': 100000,
+ 'log_prepath': 'data/ddqn_per_test_2022_09_03_163040/log/ddqn_per_test_t0_s1',
+ 'max_session': 1,
+ 'max_trial': 1,
+ 'model_prepath': 'data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1',
+ 'prepath': 'data/ddqn_per_test_2022_09_03_163040/ddqn_per_test_t0_s1',
+ 'random_seed': 1662243714,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'search': 'RandomSearch',
+ 'session': 1,
+ 'trial': 0}
+- index = 1
+- agent = <slm_lab.agent.Agent object at 0x7fedeaef7320>
+- env = <slm_lab.env.openai.OpenAIEnv object at 0x7fedf1a48278>
+- eval_env = <slm_lab.env.openai.OpenAIEnv object at 0x7fedf1a48278>
+[2022-09-03 18:05:14,466 PID:209054 INFO logger.py info] Running RL loop for trial 0 session 1
+[2022-09-03 18:05:14,671 PID:209054 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 0  wall_t: 0  opt_step: 0  frame: 0  fps: 0  total_reward: nan  total_reward_ma: nan  loss: nan  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
+[2022-09-03 18:28:05,729 PID:213445 INFO openai.py __init__] OpenAIEnv:
+- env_spec = {'max_frame': 10000000,
+ 'max_t': None,
+ 'name': 'MountainCar-v0',
+ 'normalize_state': False,
+ 'num_envs': 1}
+- eval_frequency = 100000
+- log_frequency = 100000
+- frame_op = None
+- frame_op_len = None
+- image_downsize = (84, 84)
+- normalize_state = False
+- reward_scale = None
+- num_envs = 1
+- name = MountainCar-v0
+- max_t = 200
+- max_frame = 10000000
+- to_render = True
+- is_venv = False
+- clock_speed = 1
+- clock = <slm_lab.env.base.Clock object at 0x7f7e84c90e48>
+- done = False
+- total_reward = nan
+- u_env = <TrackReward<TimeLimit<MountainCarEnv<MountainCar-v0>>>>
+- observation_space = Box(2,)
+- action_space = Discrete(3)
+- observable_dim = {'state': 2}
+- action_dim = 3
+- is_discrete = True
+[2022-09-03 18:28:05,736 PID:213445 INFO net_util.py load_algorithm] Loading algorithm DoubleDQN nets ['net', 'target_net'] from data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1_ckpt-best_*.pt
+[2022-09-03 18:28:05,768 PID:213445 INFO base.py end_init_nets] Loaded algorithm models for lab_mode: enjoy
+[2022-09-03 18:28:05,772 PID:213445 INFO base.py __init__] DoubleDQN:
+- agent = <slm_lab.agent.Agent object at 0x7f7d9467c320>
+- action_pdtype = Argmax
+- action_policy = <function epsilon_greedy at 0x7f7d9b0e2620>
+- explore_var_spec = {'end_step': 50000,
+ 'end_val': 0.01,
+ 'name': 'linear_decay',
+ 'start_step': 0,
+ 'start_val': 1.0}
+- training_start_step = 32
+- gamma = 0.99
+- training_batch_iter = 1
+- training_iter = 1
+- training_frequency = 1
+- to_train = 0
+- explore_var_scheduler = <slm_lab.agent.algorithm.policy_util.VarScheduler object at 0x7f7d945945f8>
+- net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- target_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- net_names = ['net', 'target_net']
+- optim = Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    eps: 1e-08
+    lr: 0.00025
+    weight_decay: 0
+)
+- lr_scheduler = <slm_lab.agent.net.net_util.NoOpLRScheduler object at 0x7f7d94594c18>
+- global_net = None
+- global_target_net = None
+- online_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+- eval_net = MLPNet(
+  (model): Sequential(
+    (0): Linear(in_features=2, out_features=256, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=256, out_features=128, bias=True)
+    (3): ReLU()
+  )
+  (model_tail): Sequential(
+    (0): Linear(in_features=128, out_features=3, bias=True)
+  )
+  (loss_fn): SmoothL1Loss()
+)
+[2022-09-03 18:28:05,773 PID:213445 INFO __init__.py __init__] Agent:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 100000,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_03_163040',
+ 'git_sha': '9102ff923d7a3e9c579edc18c6547cce94a7b77a',
+ 'graph_prepath': 'data/ddqn_per_test_2022_09_03_163040/graph/ddqn_per_test_t0_s1',
+ 'info_prepath': 'data/ddqn_per_test_2022_09_03_163040/info/ddqn_per_test_t0_s1',
+ 'log_frequency': 100000,
+ 'log_prepath': 'data/ddqn_per_test_2022_09_03_163040/log/ddqn_per_test_t0_s1',
+ 'max_session': 1,
+ 'max_trial': 1,
+ 'model_prepath': 'data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1',
+ 'prepath': 'data/ddqn_per_test_2022_09_03_163040/ddqn_per_test_t0_s1',
+ 'random_seed': 1662245085,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'search': 'RandomSearch',
+ 'session': 1,
+ 'trial': 0}
+- agent_spec = {'algorithm': {'action_pdtype': 'Argmax',
+               'action_policy': 'epsilon_greedy',
+               'explore_var_spec': {'end_step': 50000,
+                                    'end_val': 0.01,
+                                    'name': 'linear_decay',
+                                    'start_step': 0,
+                                    'start_val': 1.0},
+               'gamma': 0.99,
+               'name': 'DoubleDQN',
+               'training_batch_iter': 1,
+               'training_frequency': 1,
+               'training_iter': 1,
+               'training_start_step': 32},
+ 'memory': {'alpha': 0.6000000000000001,
+            'batch_size': 64,
+            'epsilon': 0.0001,
+            'max_size': 100000,
+            'name': 'PrioritizedReplay',
+            'use_cer': False},
+ 'name': 'DoubleDQN',
+ 'net': {'clip_grad_val': 10.0,
+         'gpu': False,
+         'hid_layers': [256, 128],
+         'hid_layers_activation': 'relu',
+         'loss_spec': {'name': 'SmoothL1Loss'},
+         'lr_scheduler_spec': None,
+         'optim_spec': {'lr': 0.00025, 'name': 'Adam'},
+         'type': 'MLPNet',
+         'update_frequency': 100,
+         'update_type': 'replace'}}
+- name = DoubleDQN
+- body = body: {
+  "agent": "<slm_lab.agent.Agent object at 0x7f7d9467c320>",
+  "env": "<slm_lab.env.openai.OpenAIEnv object at 0x7f7d9b25ef28>",
+  "a": 0,
+  "e": 0,
+  "b": 0,
+  "aeb": "(0, 0, 0)",
+  "explore_var": 0.01,
+  "entropy_coef": NaN,
+  "loss": NaN,
+  "mean_entropy": NaN,
+  "mean_grad_norm": NaN,
+  "best_total_reward_ma": -Infinity,
+  "total_reward_ma": NaN,
+  "train_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "eval_df": "Empty DataFrame\nColumns: [epi, t, wall_t, opt_step, frame, fps, total_reward, total_reward_ma, loss, lr, explore_var, entropy_coef, entropy, grad_norm]\nIndex: []",
+  "observation_space": "Box(2,)",
+  "action_space": "Discrete(3)",
+  "observable_dim": {
+    "state": 2
+  },
+  "state_dim": 2,
+  "action_dim": 3,
+  "is_discrete": true,
+  "action_type": "discrete",
+  "action_pdtype": "Argmax",
+  "ActionPD": "<class 'slm_lab.lib.distribution.Argmax'>",
+  "memory": "<slm_lab.agent.memory.prioritized.PrioritizedReplay object at 0x7f7d9467c278>"
+}
+- algorithm = <slm_lab.agent.algorithm.dqn.DoubleDQN object at 0x7f7d94594668>
+[2022-09-03 18:28:05,773 PID:213445 INFO logger.py info] Session:
+- spec = {'cuda_offset': 0,
+ 'distributed': False,
+ 'eval_frequency': 100000,
+ 'experiment': 0,
+ 'experiment_ts': '2022_09_03_163040',
+ 'git_sha': '9102ff923d7a3e9c579edc18c6547cce94a7b77a',
+ 'graph_prepath': 'data/ddqn_per_test_2022_09_03_163040/graph/ddqn_per_test_t0_s1',
+ 'info_prepath': 'data/ddqn_per_test_2022_09_03_163040/info/ddqn_per_test_t0_s1',
+ 'log_frequency': 100000,
+ 'log_prepath': 'data/ddqn_per_test_2022_09_03_163040/log/ddqn_per_test_t0_s1',
+ 'max_session': 1,
+ 'max_trial': 1,
+ 'model_prepath': 'data/ddqn_per_test_2022_09_03_163040/model/ddqn_per_test_t0_s1',
+ 'prepath': 'data/ddqn_per_test_2022_09_03_163040/ddqn_per_test_t0_s1',
+ 'random_seed': 1662245085,
+ 'resume': False,
+ 'rigorous_eval': 0,
+ 'search': 'RandomSearch',
+ 'session': 1,
+ 'trial': 0}
+- index = 1
+- agent = <slm_lab.agent.Agent object at 0x7f7d9467c320>
+- env = <slm_lab.env.openai.OpenAIEnv object at 0x7f7d9b25ef28>
+- eval_env = <slm_lab.env.openai.OpenAIEnv object at 0x7f7d9b25ef28>
+[2022-09-03 18:28:05,773 PID:213445 INFO logger.py info] Running RL loop for trial 0 session 1
+[2022-09-03 18:28:05,973 PID:213445 INFO __init__.py log_summary] Trial 0 session 1 ddqn_per_test_t0_s1 [train_df] epi: 0  t: 0  wall_t: 0  opt_step: 0  frame: 0  fps: 0  total_reward: nan  total_reward_ma: nan  loss: nan  lr: 0.00025  explore_var: 0.01  entropy_coef: nan  entropy: nan  grad_norm: nan
