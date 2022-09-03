@@ -61,7 +61,7 @@ This will run a session that trains a DDQN agent on the MountainCar-v0 environme
 
 ## Intro Task Submission
 **Training**:
-Notes that the training time for **10M** frames on a i7-12700H CPU is about **40 min**.
+Notes that the average reward is about **-100** (i.e. problem solved) and the training time for **10M** frames on a i7-12700H CPU is about **40 min**.
 ```
 python run_lab.py slm_lab/spec/my_mountain_car.json ddqn_per_test train
 ```
