@@ -60,6 +60,9 @@ This will run a session that trains a DDQN agent on the MountainCar-v0 environme
 > If you encounter an issue, consult the [Help](https://slm-lab.gitbook.io/slm-lab/resources/help) page.
 
 ## Intro Task Submission
+
+<img src="result.gif" width=350>
+
 **Training**:
 Notes that the best reward is about **-100** (i.e. problem solved) and the training time for **10M** frames on a i7-12700H CPU is about **40 min**.
 ```
